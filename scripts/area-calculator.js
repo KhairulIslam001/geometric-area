@@ -47,20 +47,35 @@ function calculateRectangleArea(){
 function calculateParallelogramArea(){
     const base = getInputValue('parallelogram-base');
     const height = getInputValue('parallelogram-height');
-
     // calculate the area 
     const area = base * height;
-    console.log(area);
-
-    // show parallelogramArea area
-    const parallelogramArea = document.getElementById('parallelogram-area');
-    parallelogramArea.innerText = area;
+    // show area
+    setElementInnerText('parallelogram-area',area);
 }
 
+// for ellipse card
+function calculateEllipseArea(){
+    const majorRadius = getInputValue('ellipse-major-radius');
+    const minorRadius = getInputValue('ellipse-minor-radius');
+
+    const area = 3.1416 * majorRadius * minorRadius;
+    setElementInnerText('ellipse-area',area);
+
+
+}
+
+// ****************************************
 // reusable get input value field in number
 function getInputValue(filedId){
     const inputField = document.getElementById(filedId);
     const inputValueText = inputField.value;//always mone rakhbi input field er jonno value
     const value =parseFloat(inputValueText);
     return value;
+}
+
+// *****************************************
+// reusable set span, p, div, etc text
+function setElementInnerText(elementId, area){
+    const element = document.getElementById(elementId);
+    element.innerText = area;
 }
