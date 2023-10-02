@@ -41,3 +41,26 @@ function calculateRectangleArea(){
     const rectangleArea = document.getElementById('rectangle-area');
     rectangleArea.innerText = area;
 }
+
+
+// reuseable function --> reduce duplicate code
+function calculateParallelogramArea(){
+    const base = getInputValue('parallelogram-base');
+    const height = getInputValue('parallelogram-height');
+
+    // calculate the area 
+    const area = base * height;
+    console.log(area);
+
+    // show parallelogramArea area
+    const parallelogramArea = document.getElementById('parallelogram-area');
+    parallelogramArea.innerText = area;
+}
+
+// reusable get input value field in number
+function getInputValue(filedId){
+    const inputField = document.getElementById(filedId);
+    const inputValueText = inputField.value;//always mone rakhbi input field er jonno value
+    const value =parseFloat(inputValueText);
+    return value;
+}
